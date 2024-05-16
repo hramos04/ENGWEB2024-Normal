@@ -11,14 +11,14 @@ module.exports.list = () => {
 // GET /contratos/:id
 module.exports.findById = id => {
     return Contrato
-        .findOne({_id : id})
+        .findOne({idcontrato : id})
         .exec()
 }
 
 // GET /contratos?entidade=EEEE
 module.exports.listContratoByEntidade = (entidade) => {
     return Contrato
-        .find({"entidade_comunicante": entidade})
+        .find({"NIPC_entidade_comunicante": entidade})
         .exec()
 }
 

@@ -1,0 +1,45 @@
+extends layout
+
+block content
+    - let total = 0
+    - for (let i = 0; i < entidade.length; i++)
+        - total += parseFloat(entidade[i].precoContratual)
+
+    header.w3-container.w3-blue
+        h1 NIPC Entidade Comunicante: #{entidade[0]["NIPC_entidade_comunicante"]}
+        h1 Entidade Comunicante: #{entidade[0]["entidade_comunicante"]}
+        h1 Preço total dos contratos: #{total}
+
+    .w3-container
+        table.w3-table-all
+            tr
+                th Id Contrato
+                th Número de anúncio 
+                th Tipo de procedimento
+                th Objeto de Contrato 
+                th Data de publicação
+                th Data de celebração de contrato
+                th Preço contratual
+                th Prazo execução
+                th NIPC Entidade Comunicante
+                th Entidade Comunicante
+                th Fundamentação
+
+            each registo in entidade
+                tr
+                    td= registo.idcontrato
+                    td= registo.nAnuncio
+                    td= registo.tipoprocedimento
+                    td= registo.objectoContrato
+                    td= registo.dataPublicacao
+                    td= registo.dataCelebracaoContrato
+                    td= registo.precoContratual
+                    td= registo.prazoExecucao
+                    td= registo.NIPC_entidade_comunicante
+                    td= registo.entidade_comunicante
+                    td= registo.fundamentacao
+
+    footer.w3-container.w3-blue
+        h5 [
+            a(href='/') Voltar à página principal ]
+        span
